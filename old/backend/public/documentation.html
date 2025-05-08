@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation API DARIAPP</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 30px;
+        }
+        .endpoint {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .method {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+        }
+        .get {
+            background-color: #2ecc71;
+        }
+        .post {
+            background-color: #3498db;
+        }
+        .put {
+            background-color: #f39c12;
+        }
+        .delete {
+            background-color: #e74c3c;
+        }
+        code {
+            background-color: #f7f7f7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .url {
+            font-weight: bold;
+            color: #34495e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .response {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .param-name {
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        .description {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .language-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .language-toggle button {
+            background-color: #eee;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .language-toggle button.active {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentation API DARIAPP</h1>
+        <p>Cette documentation décrit toutes les API disponibles dans l'application DARIAPP.</p>
+        <p><em>This documentation describes all APIs available in the DARIAPP application.</em></p>
+    </header>
+
+    <h2>API Utilisateurs / Users API</h2>
+
+    <div class="endpoint">
+        <h3>1. Récupérer tous les utilisateurs / Get All Users</h3>
+        <p><span class="method get">GET</span> <span class="url">/api/users</span></p>
+        <p class="description"><strong>Description:</strong> Récupère la liste complète de tous les utilisateurs enregistrés dans le système.</p>
+        <p class="description"><em>Retrieves the complete list of all users registered in the system.</em></p>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> GET</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Liste de tous les utilisateurs / List of all users</p>
+            <pre>[
+  {
+    "user_id": 1,
+    "nom": "Dupont",
+    "prenom": "Jean",
+    "email": "jean.dupont@example.com",
+    "role": "user"
+  },
+  {
+    "user_id": 2,
+    "nom": "Martin",
+    "prenom": "Marie",
+    "email": "marie.martin@example.com",
+    "role": "admin"
+  }
+]</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>2. Récupérer un utilisateur spécifique / Get User by ID</h3>
+        <p><span class="method get">GET</span> <span class="url">/api/users/:id</span></p>
+        <p class="description"><strong>Description:</strong> Récupère les informations détaillées d'un utilisateur en particulier à partir de son identifiant unique.</p>
+        <p class="description"><em>Retrieves detailed information about a specific user based on their unique identifier.</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant de l'utilisateur / user identifier</li>
+        </ul>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> GET</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/1</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Informations de l'utilisateur avec l'id 1 / User information with id 1</p>
+            <pre>{
+  "user_id": 1,
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean.dupont@example.com",
+  "role": "user"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>3. Inscription d'un utilisateur / Register User</h3>
+        <p><span class="method post">POST</span> <span class="url">/api/users/register</span></p>
+        <p class="description"><strong>Description:</strong> Permet de créer un nouvel utilisateur dans le système avec ses informations personnelles et ses identifiants de connexion.</p>
+        <p class="description"><em>Creates a new user in the system with their personal information and login credentials.</em></p>
+        <p><strong>Corps de la requête / Request Body:</strong></p>
+        <pre>{
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean.dupont@example.com",
+  "password": "motdepasse123",
+  "role": "user"
+}</pre>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> POST</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/register</li>
+            <li><strong>Body:</strong> raw (JSON)</li>
+            <li><strong>Contenu / Content:</strong> Copier le JSON ci-dessus / Copy the JSON above</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de création de l'utilisateur / User creation confirmation</p>
+            <pre>{
+  "message": "Utilisateur créé avec succès",
+  "userId": 3,
+  "success": true
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>4. Connexion d'un utilisateur / Login User</h3>
+        <p><span class="method post">POST</span> <span class="url">/api/users/login</span></p>
+        <p class="description"><strong>Description:</strong> Authentifie un utilisateur et renvoie ses informations.</p>
+        <p class="description"><em>Authenticates a user and returns their information.</em></p>
+        <p><strong>Corps de la requête / Request Body:</strong></p>
+        <pre>{
+  "email": "jean.dupont@example.com",
+  "password": "motdepasse123"
+}</pre>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> POST</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/login</li>
+            <li><strong>Body:</strong> raw (JSON)</li>
+            <li><strong>Contenu / Content:</strong> Copier le JSON ci-dessus / Copy the JSON above</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Informations de l'utilisateur connecté / User connection information</p>
+            <pre>{
+  "user": {
+    "id": 1,
+    "nom": "Dupont",
+    "prenom": "Jean",
+    "email": "jean.dupont@example.com",
+    "role": "user"
+  }
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>5. Déconnexion d'un utilisateur / Logout User</h3>
+        <p><span class="method post">POST</span> <span class="url">/api/users/logout</span></p>
+        <p class="description"><strong>Description:</strong> Déconnecte l'utilisateur actuellement connecté.</p>
+        <p class="description"><em>Logs out the currently connected user.</em></p>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> POST</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/logout</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de déconnexion / Logout confirmation</p>
+            <pre>{
+  "message": "Déconnecté avec succès"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>6. Récupérer l'utilisateur connecté / Get Current User</h3>
+        <p><span class="method get">GET</span> <span class="url">/api/users/me</span></p>
+        <p class="description"><strong>Description:</strong> Récupère les informations de l'utilisateur actuellement connecté.</p>
+        <p class="description"><em>Retrieves the information of the currently connected user.</em></p>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> GET</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/me</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Informations de l'utilisateur connecté / User connection information</p>
+            <pre>{
+  "user_id": 1,
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean.dupont@example.com",
+  "role": "user"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>7. Modifier un utilisateur / Update User</h3>
+        <p><span class="method put">PUT</span> <span class="url">/api/users/:id</span></p>
+        <p class="description"><strong>Description:</strong> Modifie les informations d'un utilisateur existant.</p>
+        <p class="description"><em>Updates information for an existing user.</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant de l'utilisateur / user identifier</li>
+        </ul>
+        <p><strong>Corps de la requête / Request Body:</strong> (tous les champs sont optionnels):</p>
+        <pre>{
+  "nom": "Nouveau Nom",
+  "prenom": "Nouveau Prénom",
+  "email": "nouvel.email@example.com",
+  "password": "nouveaumotdepasse",
+  "role": "admin"
+}</pre>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> PUT</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/1</li>
+            <li><strong>Body:</strong> raw (JSON)</li>
+            <li><strong>Contenu / Content:</strong> Copier le JSON ci-dessus (ou une partie des champs à modifier)</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de mise à jour / Update confirmation</p>
+            <pre>{
+  "message": "Utilisateur mis à jour avec succès"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>8. Supprimer un utilisateur / Delete User</h3>
+        <p><span class="method delete">DELETE</span> <span class="url">/api/users/:id</span></p>
+        <p class="description"><strong>Description:</strong> Supprime un utilisateur.</p>
+        <p class="description"><em>Deletes a user.</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant de l'utilisateur / user identifier</li>
+        </ul>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> DELETE</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/users/1</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de suppression / Deletion confirmation</p>
+            <pre>{
+  "message": "Utilisateur supprimé avec succès"
+}</pre>
+        </div>
+    </div>
+
+    <h2>API Lieux / Places API</h2>
+
+    <div class="endpoint">
+        <h3>1. Récupérer tous les lieux / Get All Places</h3>
+        <p><span class="method get">GET</span> <span class="url">/api/places</span></p>
+        <p class="description"><strong>Description:</strong> Récupère la liste complète de tous les lieux enregistrés dans le système.</p>
+        <p class="description"><em>Retrieves the complete list of all places registered in the system.</em></p>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> GET</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/places</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Liste de tous les lieux / List of all places</p>
+            <pre>[
+  {
+    "place_id": 1,
+    "nom_place": "Tour Eiffel",
+    "description": "Monument emblématique de Paris",
+    "location": "Paris, France",
+    "longitude": 2.2945,
+    "latitude": 48.8584,
+    "url_img": "https://example.com/images/tour-eiffel.jpg",
+    "url_web": "https://www.toureiffel.paris/fr"
+  },
+  {
+    "place_id": 2,
+    "nom_place": "Musée du Louvre",
+    "description": "Le plus grand musée d'art du monde",
+    "location": "Paris, France",
+    "longitude": 2.3376,
+    "latitude": 48.8606,
+    "url_img": "https://example.com/images/louvre.jpg",
+    "url_web": "https://www.louvre.fr"
+  }
+]</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>2. Récupérer un lieu spécifique / Get Place by ID</h3>
+        <p><span class="method get">GET</span> <span class="url">/api/places/:id</span></p>
+        <p class="description"><strong>Description:</strong> Récupère les informations détaillées d'un lieu particulier à partir de son identifiant unique.</p>
+        <p class="description"><em>Retrieves detailed information about a specific place based on its unique identifier.</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant du lieu / place identifier</li>
+        </ul>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> GET</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/places/1</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Informations du lieu avec l'id 1 / Place information with id 1</p>
+            <pre>{
+  "place_id": 1,
+  "nom_place": "Tour Eiffel",
+  "description": "Monument emblématique de Paris",
+  "location": "Paris, France",
+  "longitude": 2.2945,
+  "latitude": 48.8584,
+  "url_img": "https://example.com/images/tour-eiffel.jpg",
+  "url_web": "https://www.toureiffel.paris/fr"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>3. Créer un nouveau lieu / Create Place</h3>
+        <p><span class="method post">POST</span> <span class="url">/api/places</span></p>
+        <p class="description"><strong>Description:</strong> Permet de créer un nouveau lieu dans le système (nécessite des droits d'administrateur).</p>
+        <p class="description"><em>Creates a new place in the system (requires administrator rights).</em></p>
+        <p><strong>Corps de la requête / Request Body:</strong></p>
+        <pre>{
+  "nom_place": "Tour Eiffel",
+  "description": "Monument emblématique de Paris",
+  "location": "Paris, France",
+  "longitude": 2.2945,
+  "latitude": 48.8584,
+  "url_img": "https://example.com/images/tour-eiffel.jpg",
+  "url_web": "https://www.toureiffel.paris/fr"
+}</pre>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> POST</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/places</li>
+            <li><strong>Body:</strong> raw (JSON)</li>
+            <li><strong>Contenu / Content:</strong> Copier le JSON ci-dessus / Copy the JSON above</li>
+            <li><strong>Headers:</strong> Authentification nécessaire / Authentication required</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de création du lieu / Place creation confirmation</p>
+            <pre>{
+  "id": 3,
+  "nom_place": "Tour Eiffel",
+  "description": "Monument emblématique de Paris",
+  "location": "Paris, France",
+  "longitude": 2.2945,
+  "latitude": 48.8584,
+  "url_img": "https://example.com/images/tour-eiffel.jpg",
+  "url_web": "https://www.toureiffel.paris/fr"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>4. Modifier un lieu / Update Place</h3>
+        <p><span class="method put">PUT</span> <span class="url">/api/places/:id</span></p>
+        <p class="description"><strong>Description:</strong> Permet de mettre à jour les informations d'un lieu existant dans le système (nécessite des droits d'administrateur).</p>
+        <p class="description"><em>Updates information for an existing place in the system (requires administrator rights).</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant du lieu / place identifier</li>
+        </ul>
+        <p><strong>Corps de la requête / Request Body:</strong></p>
+        <pre>{
+  "nom_place": "Tour Eiffel (mise à jour)",
+  "description": "Nouvelle description du monument",
+  "location": "Paris, France",
+  "longitude": 2.2945,
+  "latitude": 48.8584,
+  "url_img": "https://example.com/images/tour-eiffel-new.jpg",
+  "url_web": "https://www.toureiffel.paris/fr"
+}</pre>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> PUT</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/places/1</li>
+            <li><strong>Body:</strong> raw (JSON)</li>
+            <li><strong>Contenu / Content:</strong> Copier le JSON ci-dessus / Copy the JSON above</li>
+            <li><strong>Headers:</strong> Authentification nécessaire / Authentication required</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de mise à jour / Update confirmation</p>
+            <pre>{
+  "message": "Place updated successfully"
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>5. Supprimer un lieu / Delete Place</h3>
+        <p><span class="method delete">DELETE</span> <span class="url">/api/places/:id</span></p>
+        <p class="description"><strong>Description:</strong> Supprime définitivement un lieu et toutes ses données associées du système (nécessite des droits d'administrateur).</p>
+        <p class="description"><em>Permanently deletes a place and all its associated data from the system (requires administrator rights).</em></p>
+        <p><strong>Paramètres / Parameters:</strong></p>
+        <ul>
+            <li><span class="param-name">id:</span> identifiant du lieu / place identifier</li>
+        </ul>
+        <h4>Exemple avec Postman / Postman Example:</h4>
+        <ul>
+            <li><strong>Méthode / Method:</strong> DELETE</li>
+            <li><strong>URL:</strong> http://localhost:3000/api/places/1</li>
+            <li><strong>Headers:</strong> Authentification nécessaire / Authentication required</li>
+        </ul>
+        <div class="response">
+            <p><strong>Réponse / Response:</strong> Confirmation de suppression / Deletion confirmation</p>
+            <pre>{
+  "message": "Place deleted successfully"
+}</pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 DARIAPP. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
