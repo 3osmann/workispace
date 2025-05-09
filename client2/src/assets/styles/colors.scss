@@ -1,0 +1,43 @@
+// Colors and theme names are taken from color-schemes folder
+// === THEME ===
+// Allowed values: LandOfClean, Dark, CoolAndCollected, MetallicChich
+$theme: MetallicChic;
+
+// Define variables
+$first-color: #659dbd;
+$second-color: #8d8741;
+$third-color: #daad86;
+$fourth-color: #bc986a;
+$fifth-color: #fbeec1;
+$sixth-color: #fefefe;
+
+// === COLORS ===
+@if $theme == Dark {
+    $first-color: #659dbd;
+    $second-color: #8d8741;
+    $third-color: #daad86;
+    $fourth-color: #bc986a;
+    $fifth-color: #fbeec1;
+    $sixth-color: #fefefe;
+} @else if $theme == LanfOfClean {
+    $first-color: #659dbd;
+    $second-color: #8d8741;
+    $third-color: #daad86;
+    $fourth-color: #bc986a;
+    $fifth-color: #fbeec1;
+    $sixth-color: #fefefe;
+} @else if $theme == CoolAndCollected {
+    $first-color: #003135;
+    $second-color: #024950;
+    $third-color: #964734;
+    $fourth-color: #0FA4AF;
+    $fifth-color: #AFDDE5;
+    $sixth-color: #fefefe;
+} @else if $theme == MetallicChic {
+    $first-color: #3D52A0;
+    $second-color: #7091E6;
+    $third-color: #8697C4;
+    $fourth-color: #ADBBDA;
+    $fifth-color: #EDE8F5;
+    $sixth-color: #fefefe;
+}
